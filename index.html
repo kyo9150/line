@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <base target="_top">
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <title>Stripe Checkout Test</title>
+  </head>
+  <body>
+    <p>ようこそ！</p>
+    <form action="https://script.google.com/macros/s/AKfycbx_3Om2eiWIzHX0bxeRZ3gPZ1MjZGJN45tY87j-oQr6zFu9rvxDawlhlxCSGa8R3W2G/exec" method="POST">
+    <script
+      src = "https://checkout.stripe.com/checkout.js"
+      data-key = "pk_test_51Ovxgu2NvZaL7gHOz9jfENDJRHD8tVav04T9mtSgez8FzGU8gwY4SRb2uRam4brEOEcsBRj0tjArvJAuroUjLN8h00IOQDoeN4"
+      class = "stripe-button"
+      data-amount = "20000"
+      data-currency = "JPY"
+      data-name = "商品Aを買う"
+      data-description = "商品Aを購入できます"
+      data-image = "https://stripe.com/img/documentation/checkout/marketplace.png"
+      data-locale = "ja"
+      data-label="購入する"
+    >
+    </script>
+    </form>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+    liff.init({
+      liffId: "2004189560-2dNg3lo8"
+    }).catch((err) => {
+      console.log(err);
+    });
+    liff.ready.then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      }
+      const idToken = liff.getDecodedIDToken();
+      const userId = idToken.sub;
+      $('form').append(`<input type="hidden" name="line_id" value="${userId}" />`);
+    })
+  </script>
+</html>
