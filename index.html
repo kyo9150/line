@@ -2,9 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base target="_top">
     <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
     <title>Stripe Checkout Test</title>
+    <style type="text/css">
+      html{
+        font-size: 10px;
+      }
+      img{
+        width: 100%;
+      }
+      
+      p{
+        background-color: black;
+        color: white;
+      }
+      
+      @media screen and (max-width: 768px) {
+        p{
+            background-color: black;
+             color:green;
+         }
+      }
+      
+      @media screen and (max-width: 480px) {
+        p{
+            background-color: black;
+             color:red;
+         }
+      }
+    </style>
   </head>
   <body>
     <p>ようこそ！</p>
